@@ -33,8 +33,8 @@
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url('assets/user.png'); ?>" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">Egipson A. W.</p>
-          <p class="app-sidebar__user-designation">Gak tau lah</p>
+          <p class="app-sidebar__user-name"><?php echo $this->session->nama; ?></p>
+          <p class="app-sidebar__user-designation"><?php echo $this->session->username; ?></p>
         </div>
       </div>
       <ul class="app-menu">

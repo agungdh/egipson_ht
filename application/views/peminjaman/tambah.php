@@ -14,7 +14,8 @@
       <div class="tile-body">
         <form method="post" action="<?php echo base_url('peminjaman/aksi_tambah'); ?>">
 
-          <input type="hidden" name="data[user_id]" value="">
+          <input type="hidden" name="data[user_id]" value="<?php echo $this->session->id; ?>">
+          <input type="hidden" name="data[status]" value="1">
           
           <div class="form-group">
             <label class="control-label">Nama</label>
@@ -44,7 +45,7 @@
           <div class="form-group">
             <label class="control-label">Durasi</label>
             <div class="input-group">
-              <input class="form-control" type="number" required placeholder="Masukan Durasi" name="data[durasi]">
+              <input class="form-control" type="number" min="1" required placeholder="Masukan Durasi" name="data[durasi]">
               <div class="input-group-append"><span class="input-group-text">Hari</span></div>
             </div>
           </div>
