@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 10:13 PM
+-- Generation Time: May 21, 2018 at 10:26 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -29,19 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `config` (
-  `kunci` varchar(255) NOT NULL,
-  `nilai` varchar(255) NOT NULL
+  `judul_aplikasi` varchar(255) NOT NULL,
+  `judul_menu` varchar(255) NOT NULL,
+  `zenziva_passkey` varchar(255) NOT NULL,
+  `zenziva_userkey` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `config`
 --
 
-INSERT INTO `config` (`kunci`, `nilai`) VALUES
-('judul_aplikasi', 'EGIPSON A. W.'),
-('judul_menu', 'HT'),
-('zenziva_passkey', '1234'),
-('zenziva_userkey', '8es5nr');
+INSERT INTO `config` (`judul_aplikasi`, `judul_menu`, `zenziva_passkey`, `zenziva_userkey`) VALUES
+('EGIPSON A. W.', 'HT', '1234', '8es5nr');
 
 -- --------------------------------------------------------
 
@@ -119,12 +118,6 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`, `level`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `config`
---
-ALTER TABLE `config`
-  ADD PRIMARY KEY (`kunci`);
 
 --
 -- Indexes for table `peminjaman`
