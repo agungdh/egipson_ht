@@ -24,7 +24,9 @@ class Trigger extends CI_Controller {
 		}
 
 		foreach ($phone as $item) {
-			file_get_contents('https://reguler.zenziva.net/apps/smsapi.php?userkey='.$config->zenziva_userkey.'&passkey='.$config->zenziva_passkey.'&nohp='.$item.'&pesan='.urlencode($config->zenziva_sms));
+			$zenziva = simplexml_load_string(file_get_contents('https://reguler.zenziva.net/apps/smsapi.php?userkey='.$config->zenziva_userkey.'&passkey='.$config->zenziva_passkey.'&nohp='.$item.'&pesan='.urlencode($config->zenziva_sms)));
+
+			var_dump($zenziva);
 		}
 	}
 }
