@@ -11,7 +11,9 @@
   <div class="col-md-12">
     <div class="tile">
       <div class="tile-body">
-        <h3 class="tile-title">Data Peminjaman Belum Dikembalikan</h3>
+        <div class="tile-title-w-btn">
+          <h3 class="title">Data Peminjaman Belum Dikembalikan</h3>
+        </div>
         <table class="table table-hover table-bordered datatable">
           <thead>
             <tr>
@@ -47,7 +49,9 @@
 <div class="col-md-12">
     <div class="tile">
       <div class="tile-body">
-        <h3 class="tile-title">Data Peminjaman Sudah Dikembalikan</h3>
+        <div class="tile-title-w-btn">
+          <h3 class="title">Data Peminjaman Sudah Dikembalikan</h3>
+        </div>
         <table class="table table-hover table-bordered datatable">
           <thead>
             <tr>
