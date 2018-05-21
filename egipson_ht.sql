@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 09:12 PM
+-- Generation Time: May 21, 2018 at 10:13 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -25,6 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `config`
+--
+
+CREATE TABLE `config` (
+  `kunci` varchar(255) NOT NULL,
+  `nilai` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`kunci`, `nilai`) VALUES
+('judul_aplikasi', 'EGIPSON A. W.'),
+('judul_menu', 'HT'),
+('zenziva_passkey', '1234'),
+('zenziva_userkey', '8es5nr');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `peminjaman`
 --
 
@@ -35,6 +56,7 @@ CREATE TABLE `peminjaman` (
   `jenis` varchar(255) NOT NULL,
   `nip` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `nohp` varchar(255) NOT NULL,
   `durasi` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -44,8 +66,9 @@ CREATE TABLE `peminjaman` (
 -- Dumping data for table `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `tanggal`, `noseri`, `jenis`, `nip`, `nama`, `durasi`, `status`, `user_id`) VALUES
-(6, '2018-05-17', '0099', 'ATX', '1234', 'Egipson A. W.', 6, 1, 1);
+INSERT INTO `peminjaman` (`id`, `tanggal`, `noseri`, `jenis`, `nip`, `nama`, `nohp`, `durasi`, `status`, `user_id`) VALUES
+(6, '2018-05-17', '0099', 'ATX', '1234', 'Egipson A. W. test', '085368530235', 6, 0, 1),
+(7, '2018-05-30', 'r1r12r', '1rr1', '124124', 'qwqwf qw', '08523423', 4, 0, 12);
 
 -- --------------------------------------------------------
 
@@ -62,6 +85,14 @@ CREATE TABLE `pengembalian` (
   `nama` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengembalian`
+--
+
+INSERT INTO `pengembalian` (`id`, `tanggal`, `noseri`, `jenis`, `nip`, `nama`, `user_id`) VALUES
+(5, '2018-05-30', 'r1r12r', '666666', '1234 ', 'Test DPM', 12),
+(6, '2018-05-23', '0099', '23523', '235235', 'wetwe tw', 1);
 
 -- --------------------------------------------------------
 
@@ -88,6 +119,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`, `level`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`kunci`);
 
 --
 -- Indexes for table `peminjaman`
@@ -117,13 +154,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
