@@ -10,10 +10,11 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Tambah Peminjaman</h3>
+      <h3 class="tile-title">Ubah Peminjaman</h3>
       <div class="tile-body">
         <form method="post" action="<?php echo base_url('peminjaman/aksi_ubah'); ?>">
 
+          <input type="hidden" name="where[id]" value="<?php echo $data['peminjaman']->id; ?>">
           <input type="hidden" name="data[user_id]" value="<?php echo $this->session->id; ?>">
           <input type="hidden" name="data[status]" value="1">
           

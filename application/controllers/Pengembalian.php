@@ -23,7 +23,7 @@ class Pengembalian extends CI_Controller {
 	function ubah($id) {
 		$data['isi'] = 'pengembalian/ubah';
 		$data['js'] = 'pengembalian/ubah_js';
-		$data['data']['peminjaman'] = $this->db->get_where('peminjaman', ['id' => $id])->row();
+		$data['data']['pengembalian'] = $this->db->get_where('pengembalian', ['id' => $id])->row();
 
 		$this->load->view('template/template', $data);
 	}
@@ -42,9 +42,11 @@ class Pengembalian extends CI_Controller {
 			}
 		}
 
-		$this->db->insert('peminjaman', $data);
+		$this->db->insert('pengembalian', $data);
 
-		redirect(base_url('peminjaman'));
+		$this->db->update('peminjaman', ['status' => 0], ['noseri' => $data['noseri']]);
+
+		redirect(base_url('pengembalian'));
 	}
 
 	function aksi_ubah() {
@@ -65,15 +67,15 @@ class Pengembalian extends CI_Controller {
 			$where[$key] = $value;
 		}
 
-		$this->db->update('peminjaman', $data, $where);
+		$this->db->update('pengembalian', $data, $where);
 
-		redirect(base_url('peminjaman'));
+		redirect(base_url('pengembalian'));
 	}
 
 	function aksi_hapus($id) {
-		$this->db->delete('peminjaman', ['id' => $id]);
+		$this->db->delete('pengembalian', ['id' => $id]);
 
-		redirect(base_url('peminjaman'));
+		redirect(base_url('pengembalian'));
 	}
 
 }

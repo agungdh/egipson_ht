@@ -10,20 +10,21 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Tambah Pengembalian</h3>
+      <h3 class="tile-title">Ubah Pengembalian</h3>
       <div class="tile-body">
-        <form method="post" action="<?php echo base_url('pengembalian/aksi_tambah'); ?>">
+        <form method="post" action="<?php echo base_url('pengembalian/aksi_ubah'); ?>">
 
+          <input type="hidden" name="where[id]" value="<?php echo $data['pengembalian']->id; ?>">
           <input type="hidden" name="data[user_id]" value="<?php echo $this->session->id; ?>">
           
           <div class="form-group">
             <label class="control-label">Nama</label>
-            <input class="form-control" type="text" required placeholder="Masukan Nama" name="data[nama]">
+            <input class="form-control" value="<?php echo $data['pengembalian']->nama; ?>" type="text" required placeholder="Masukan Nama" name="data[nama]">
           </div>
 
           <div class="form-group">
             <label class="control-label">NIP</label>
-            <input class="form-control" type="text" required placeholder="Masukan NIP" name="data[nip]">
+            <input class="form-control" value="<?php echo $data['pengembalian']->nip; ?>" type="text" required placeholder="Masukan NIP" name="data[nip]">
           </div>
 
           <div class="form-group">
@@ -32,7 +33,7 @@
               <?php
               foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
                 ?>
-                <option value="<?php echo $item->noseri; ?>"><?php echo $item->noseri; ?></option>
+                <option <?php echo $item->noseri == $data['pengembalian']->noseri ? "selected" : null; ?> value="<?php echo $item->noseri; ?>"><?php echo $item->noseri; ?></option>
                 <?php
               }
               ?>
@@ -41,12 +42,15 @@
 
           <div class="form-group">
             <label class="control-label">Jenis</label>
-            <input class="form-control" type="text" required placeholder="Masukan Jenis" name="data[jenis]">
+            <input class="form-control" value="<?php echo $data['pengembalian']->jenis; ?>" type="text" required placeholder="Masukan Jenis" name="data[jenis]">
           </div>
 
+          <?php
+          $tanggal = date_format(date_create($data['pengembalian']->tanggal),"d-m-Y");
+          ?>
           <div class="form-group">
             <label class="control-label">Tanggal</label>
-            <input class="form-control datepicker" type="text" required placeholder="Masukan Tanggal" name="data[tanggal]">
+            <input class="form-control datepicker" value="<?php echo $tanggal; ?>" type="text" required placeholder="Masukan Tanggal" name="data[tanggal]">
           </div>
 
           </div>
