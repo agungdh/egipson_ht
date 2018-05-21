@@ -24,6 +24,8 @@
               <th>Jenis</th>
               <th>Tanggal</th>
               <th>Durasi (Hari)</th>
+              <th>Deadline</th>
+              <th>Sisa Hari</th>
               <th>Proses</th>
             </tr>
           </thead>
@@ -37,6 +39,17 @@
                 <td><?php echo $item->jenis; ?></td>
                 <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
                 <td><?php echo $item->durasi; ?></td>
+                <?php
+                $deadline=date_create($item->tanggal);
+                date_add($deadline,date_interval_create_from_date_string($item->durasi . " days"));
+                ?>
+                <td><?php echo date_format($deadline,"d-m-Y"); ?></td>
+                <?php
+                $date1 = date("Y-m-d");
+                $date2 = date_format($deadline,"Y-m-d");
+                $days = (strtotime($date2) - strtotime($date1)) / (60 * 60 * 24);
+                ?>
+                <td><?php echo $days; ?></td>
                 <td>
                   <div class="btn-group">
                     <a class="btn btn-primary" href="<?php echo base_url('peminjaman/ubah/' . $item->id); ?>" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
