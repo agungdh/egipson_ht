@@ -25,6 +25,26 @@ class Pustaka {
 	 
 		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 	}
+
+	function tanggal_indo_string_bulan_tahun($bulan_tahun){
+		$bulan = array (
+			1 =>   'Januari',
+			'Februari',
+			'Maret',
+			'April',
+			'Mei',
+			'Juni',
+			'Juli',
+			'Agustus',
+			'September',
+			'Oktober',
+			'November',
+			'Desember'
+		);
+		$pecahkan = explode('-', $bulan_tahun);
+	 
+		return $bulan[ (int)$pecahkan[0] ] . ' ' . $pecahkan[1];
+	}
 	
 	function swal1($pesan) {
 		?>

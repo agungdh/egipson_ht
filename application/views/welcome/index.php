@@ -13,7 +13,7 @@ $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/
 </div>
 <div class="row">
   <div class="col-md-12 col-lg-4">
-    <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+    <div class="widget-small primary coloured-icon"><i class="icon fa fa-dollar fa-3x"></i>
       <div class="info">
         <h4>Kredit SMS</h4>
         <p><b><?php echo $zenziva->message->value; ?></b></p>
@@ -21,7 +21,7 @@ $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/
     </div>
   </div>
   <div class="col-md-12 col-lg-4">
-    <div class="widget-small info coloured-icon"><i class="icon fa fa-thumbs-o-up fa-3x"></i>
+    <div class="widget-small info coloured-icon"><i class="icon fa fa-calendar-times-o fa-3x"></i>
       <div class="info">
         <h4>Jatuh Tempo</h4>
         <p><b>25</b></p>
@@ -29,7 +29,7 @@ $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/
     </div>
   </div>
   <div class="col-md-12 col-lg-4">
-    <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
+    <div class="widget-small warning coloured-icon"><i class="icon fa fa-calendar fa-3x"></i>
       <div class="info">
         <h4>Tanggal</h4>
         <p><b><?php echo $this->pustaka->tanggal_indo_string(date('Y-m-d')); ?></b></p>
@@ -40,7 +40,7 @@ $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Monthly Sales</h3>
+      <h3 class="tile-title">Grafik Peminjaman dan Pengembalian Handy Talky</h3>
       <div class="embed-responsive embed-responsive-16by9">
         <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
       </div>
