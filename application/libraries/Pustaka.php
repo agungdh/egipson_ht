@@ -6,6 +6,26 @@ class Pustaka {
 		return date("d-m-Y", strtotime($tanggal));
 	}	
 
+	function tanggal_indo_string($tanggal){
+		$bulan = array (
+			1 =>   'Januari',
+			'Februari',
+			'Maret',
+			'April',
+			'Mei',
+			'Juni',
+			'Juli',
+			'Agustus',
+			'September',
+			'Oktober',
+			'November',
+			'Desember'
+		);
+		$pecahkan = explode('-', $tanggal);
+	 
+		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+	}
+	
 	function swal1($pesan) {
 		?>
 		<script type="text/javascript">

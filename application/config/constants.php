@@ -89,6 +89,3 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 // define('blah', 'hello mum!');
 // $myglobalvar = 'hey there';
-define("judul_aplikasi", "EGIPSON A. W.");
-define("userkey", "8es5nr");
-define("passkey", "1234");

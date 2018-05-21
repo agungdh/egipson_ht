@@ -29,6 +29,11 @@
           </div>
 
           <div class="form-group">
+            <label class="control-label">Nomor HP</label>
+            <input class="form-control" value="<?php echo $data['peminjaman']->nohp; ?>" type="text" required placeholder="Masukan Nomor HP" name="data[nohp]">
+          </div>
+
+          <div class="form-group">
             <label class="control-label">Nomor Seri</label>
             <input class="form-control" value="<?php echo $data['peminjaman']->noseri; ?>" type="text" required placeholder="Masukan Nomor Seri" name="data[noseri]">
           </div>

@@ -20,6 +20,7 @@
             <tr>
               <th>Nama</th>
               <th>NIP</th>
+              <th>Nomor HP</th>
               <th>Nomor Seri</th>
               <th>Jenis</th>
               <th>Tanggal</th>
@@ -35,6 +36,7 @@
               <tr>
                 <td><?php echo $item->nama; ?></td>
                 <td><?php echo $item->nip; ?></td>
+                <td><?php echo $item->nohp; ?></td>
                 <td><?php echo $item->noseri; ?></td>
                 <td><?php echo $item->jenis; ?></td>
                 <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
@@ -76,6 +78,7 @@
             <tr>
               <th>Nama</th>
               <th>NIP</th>
+              <th>Nomor HP</th>
               <th>Nomor Seri</th>
               <th>Jenis</th>
               <th>Tanggal</th>
@@ -88,6 +91,7 @@
               <tr>
                 <td><?php echo $item->nama; ?></td>
                 <td><?php echo $item->nip; ?></td>
+                <td><?php echo $item->nohp; ?></td>
                 <td><?php echo $item->noseri; ?></td>
                 <td><?php echo $item->jenis; ?></td>
                 <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>

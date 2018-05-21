@@ -12,6 +12,7 @@ class Welcome extends CI_Controller {
 			$this->load->view("template/login");
 		} else {
 			$data['isi'] = "welcome/index";
+			$data['js'] = "welcome/index_js";
 			
 			$this->load->view("template/template", $data);
 		}
