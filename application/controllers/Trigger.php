@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller {
+class Trigger extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 	}
 
 	function index() {
-		$jumlah = 0;
 		$phone = [];
+		$deadline_phone = [];
 		foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
                 $deadline=date_create($item->tanggal);
                 date_add($deadline,date_interval_create_from_date_string($item->durasi . " days"));
@@ -16,12 +16,13 @@ class Test extends CI_Controller {
                 $date2 = date_format($deadline,"Y-m-d");
                 $days = (strtotime($date2) - strtotime($date1)) / (60 * 60 * 24);
                 if ($days <= 1) {
-                	$jumlah++;
                 	$phone[] = $item->nohp;
+                	$deadline_phone[] = $days;
                 }
 		}
 
-		echo $jumlah;
-		var_dump($phone);
+		foreach ($phone as $item) {
+			
+		}
 	}
 }
