@@ -7,6 +7,8 @@ class Trigger extends CI_Controller {
 	}
 
 	function index() {
+		$config = $this->db->get('config')->row();
+		
 		$phone = [];
 		$deadline_phone = [];
 		foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
@@ -22,7 +24,7 @@ class Trigger extends CI_Controller {
 		}
 
 		foreach ($phone as $item) {
-			
+			file_get_contents('https://reguler.zenziva.net/apps/smsapi.php?userkey='.$config->zenziva_userkey.'&passkey='.$config->zenziva_passkey.'&nohp='.$item.'&pesan='.urlencode($config->zenziva_sms));
 		}
 	}
 }

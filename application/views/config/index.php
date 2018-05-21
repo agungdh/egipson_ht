@@ -39,6 +39,11 @@
             <input class="form-control" type="text" value="<?php echo $data['config']->zenziva_passkey; ?>" required placeholder="Masukan Zenziva Passkey" name="data[zenziva_passkey]">
           </div>
 
+          <div class="form-group">
+            <label class="control-label">Zenziva SMS</label>
+            <textarea class="form-control" name="data[zenziva_sms]" placeholder="Tulis SMS disini" required><?php echo $data['config']->zenziva_sms; ?></textarea>
+          </div>
+
           </div>
           <div class="tile-footer">
             <button id="simpan" class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Simpan</button>
