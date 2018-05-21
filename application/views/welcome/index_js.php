@@ -93,5 +93,12 @@ var data = {
       ]
 
 var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-var lineChart = new Chart(ctxl).Line(data);
+var lineChart = new Chart(ctxl).Line(data, {
+   responsive : true,
+   animation: true,
+   barValueSpacing : 5,
+   barDatasetSpacing : 1,
+   tooltipFillColor: "rgba(0,0,0,0.8)",                
+   multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
+});
 </script>
