@@ -10,13 +10,33 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Ubah Config</h3>
       <div class="tile-body">
         <form method="post" action="<?php echo base_url('config/aksi_ubah'); ?>">
+        
+          <h3 class="tile-title">Aplikasi</h3>
           
           <div class="form-group">
-            <label class="control-label">Nama</label>
-            <input class="form-control" type="text" required placeholder="Masukan Nama" name="data[nama]">
+            <label class="control-label">Judul Aplikasi</label>
+            <input class="form-control" type="text" value="<?php echo $data['config']->judul_aplikasi; ?>" required placeholder="Masukan Judul Aplikasi" name="data[judul_aplikasi]">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Judul Menu</label>
+            <input class="form-control" type="text" value="<?php echo $data['config']->judul_menu; ?>" required placeholder="Masukan Judul Menu" name="data[judul_menu]">
+          </div>
+
+          <br>
+
+          <h3 class="tile-title">Zenziva Api</h3>
+          
+          <div class="form-group">
+            <label class="control-label">Zenziva Userkey</label>
+            <input class="form-control" type="text" value="<?php echo $data['config']->zenziva_userkey; ?>" required placeholder="Masukan Zenziva Userkey" name="data[zenziva_userkey]">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Zenziva Passkey</label>
+            <input class="form-control" type="text" value="<?php echo $data['config']->zenziva_passkey; ?>" required placeholder="Masukan Zenziva Passkey" name="data[zenziva_passkey]">
           </div>
 
           </div>

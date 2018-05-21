@@ -8,8 +8,8 @@ class Config extends CI_Controller {
 
 	function index() {
 		$data['isi'] = 'config/index';
-		// $data['js'] = 'config/index_js';
-		$data['data']['user'] = $this->db->get_where('user', ['id' => $this->session->id])->row();
+		$data['js'] = 'config/index_js';
+		$data['data']['config'] = $this->db->get('config')->row();
 
 		$this->load->view('template/template', $data);
 	}
@@ -19,13 +19,7 @@ class Config extends CI_Controller {
 			$data[$key] = $value;
 		}
 
-		foreach ($this->input->post('where') as $key => $value) {
-			$where[$key] = $value;
-		}
-
-		$this->db->update('user', $data, $where);
-
-		$this->session->set_userdata('nama', $data['nama']);
+		$this->db->update('config', $data);
 
 		redirect(base_url());
 	}
