@@ -20,6 +20,14 @@ class Peminjaman extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+	function ubah($id) {
+		$data['isi'] = 'peminjaman/ubah';
+		$data['js'] = 'peminjaman/ubah_js';
+		$data['data']['peminjaman'] = $this->db->get_where('peminjaman', ['id' => $id])->row();
+
+		$this->load->view('template/template', $data);
+	}
+
 	function aksi_tambah() {
 		foreach ($this->input->post('data') as $key => $value) {
 			switch ($key) {
@@ -41,7 +49,16 @@ class Peminjaman extends CI_Controller {
 
 	function aksi_ubah() {
 		foreach ($this->input->post('data') as $key => $value) {
-			$data[$key] = $value;
+			switch ($key) {
+				case 'tanggal':
+					$date=date_create($value);
+					$data[$key] = date_format($date,"Y-m-d");
+					break;
+				
+				default:
+					$data[$key] = $value;
+					break;
+			}
 		}
 
 		foreach ($this->input->post('where') as $key => $value) {
