@@ -1,3 +1,7 @@
+<?php
+$zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/apps/smsapibalance.php?userkey=" . $data['config']->zenziva_userkey . "&passkey=" . $data['config']->zenziva_passkey));
+?>
+
 <div class="app-title">
   <div>
     <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
@@ -12,7 +16,7 @@
     <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
       <div class="info">
         <h4>Kredit SMS</h4>
-        <p><b>5</b></p>
+        <p><b><?php echo $zenziva->message->value; ?></b></p>
       </div>
     </div>
   </div>

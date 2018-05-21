@@ -1,6 +1,3 @@
-<?php
-// $xml = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/apps/smsapibalance.php?userkey=" . userkey . "&passkey=" . passkey));
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
