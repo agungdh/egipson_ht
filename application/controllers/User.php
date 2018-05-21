@@ -20,8 +20,64 @@ class User extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+	function ubah($id) {
+		$data['isi'] = 'user/ubah';
+		$data['js'] = 'user/ubah_js';
+		$data['data']['user'] = $this->db->get_where('user', ['id' => $id])->row();
+
+		$this->load->view('template/template', $data);
+	}
+
 	function aksi_tambah() {
-		var_dump($this->input->post('data'));
+		foreach ($this->input->post('data') as $key => $value) {
+			switch ($key) {
+				case 'password':
+					$data[$key] = hash('md5', $value);
+					break;
+				
+				default:
+					$data[$key] = $value;
+					break;
+			}
+		}
+
+		$this->db->insert('user', $data);
+
+		redirect(base_url('user'));
+	}
+
+	function aksi_ubah() {
+		foreach ($this->input->post('data') as $key => $value) {
+			$data[$key] = $value;
+		}
+
+		foreach ($this->input->post('where') as $key => $value) {
+			$where[$key] = $value;
+		}
+
+		$this->db->update('user', $data, $where);
+
+		redirect(base_url('user'));
+	}
+
+	function aksi_ubah_password() {
+		foreach ($this->input->post('data') as $key => $value) {
+			$data[$key] = hash('md5', $value);
+		}
+
+		foreach ($this->input->post('where') as $key => $value) {
+			$where[$key] = $value;
+		}
+
+		$this->db->update('user', $data, $where);
+
+		redirect(base_url('user'));
+	}
+
+	function aksi_hapus($id) {
+		$this->db->delete('user', ['id' => $id]);
+
+		redirect(base_url('user'));
 	}
 
 }

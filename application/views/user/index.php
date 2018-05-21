@@ -49,8 +49,10 @@
                 ?>
                 <td><?php echo $level; ?></td>
                 <td>
-                  <a href="">Ubah</a>
-                  <a href="">Hapus</a>
+                  <div class="btn-group">
+                    <a class="btn btn-primary" href="<?php echo base_url('user/ubah/' . $item->id); ?>" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-primary" href="#" onclick="hapus('<?php echo $item->id; ?>')" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
+                  </div>
                 </td>
               </tr>
               <?php

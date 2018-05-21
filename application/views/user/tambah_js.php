@@ -1,6 +1,6 @@
 <script type="text/javascript">
 $('#simpan').click(function(){
-  $("form").submit();
+  $("input[type='submit']").click();
 });
 
 $('.select2').select2();

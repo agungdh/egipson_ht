@@ -6,6 +6,6 @@ $('.datepicker').datepicker({
 });
 
 $('#simpan').click(function(){
-  $("form").submit();
+  $("input[type='submit']").click();
 });
 </script>

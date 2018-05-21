@@ -4,4 +4,4 @@
 
 <li><a class="app-menu__item" href="<?php echo base_url('pengembalian'); ?>"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Pengembalian</span></a></li>
 
-<li><a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">User</span></a></li>
+<li><a class="app-menu__item" href="<?php echo base_url('user'); ?>"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User</span></a></li>

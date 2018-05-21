@@ -18,33 +18,33 @@
           
           <div class="form-group">
             <label class="control-label">Nama</label>
-            <input class="form-control" type="text" placeholder="Masukan Nama" name="data[nama]">
+            <input class="form-control" type="text" required placeholder="Masukan Nama" name="data[nama]">
           </div>
 
           <div class="form-group">
             <label class="control-label">NIP</label>
-            <input class="form-control" type="text" placeholder="Masukan NIP" name="data[nip]">
+            <input class="form-control" type="text" required placeholder="Masukan NIP" name="data[nip]">
           </div>
 
           <div class="form-group">
             <label class="control-label">Nomor Seri</label>
-            <input class="form-control" type="text" placeholder="Masukan Nomor Seri" name="data[noseri]">
+            <input class="form-control" type="text" required placeholder="Masukan Nomor Seri" name="data[noseri]">
           </div>
 
           <div class="form-group">
             <label class="control-label">Jenis</label>
-            <input class="form-control" type="text" placeholder="Masukan Jenis" name="data[jenis]">
+            <input class="form-control" type="text" required placeholder="Masukan Jenis" name="data[jenis]">
           </div>
 
           <div class="form-group">
             <label class="control-label">Tanggal</label>
-            <input class="form-control datepicker" type="text" placeholder="Masukan Tanggal" name="data[tanggal]">
+            <input class="form-control datepicker" type="text" required placeholder="Masukan Tanggal" name="data[tanggal]">
           </div>
 
           <div class="form-group">
             <label class="control-label">Durasi</label>
             <div class="input-group">
-              <input class="form-control" type="number" placeholder="Masukan Durasi" name="data[durasi]">
+              <input class="form-control" type="number" required placeholder="Masukan Durasi" name="data[durasi]">
               <div class="input-group-append"><span class="input-group-text">Hari</span></div>
             </div>
           </div>
@@ -53,7 +53,7 @@
           <div class="tile-footer">
             <button id="simpan" class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Simpan</button>
             &nbsp;&nbsp;&nbsp;
-            <a class="btn btn-secondary" href="<?php echo base_url('peminjaman'); ?>"><i class="fa fa-fw fa-lg fa-times-circle"></i>Batal</a>
+            <a class="btn btn-secondary" href="<?php echo base_url('peminjaman'); ?>"><i class="fa fa-fw fa-lg fa-times-circle"></i>Batal</a> <input type="submit" style="visibility: hidden;">
           </div>
         </form>
     </div>
