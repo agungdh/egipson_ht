@@ -24,7 +24,20 @@ $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/
     <div class="widget-small info coloured-icon"><i class="icon fa fa-calendar-times-o fa-3x"></i>
       <div class="info">
         <h4>Jatuh Tempo</h4>
-        <p><b>25</b></p>
+        <?php
+        $jumlah_jatuh_tempo = 0;
+        foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
+                    $deadline=date_create($item->tanggal);
+                    date_add($deadline,date_interval_create_from_date_string($item->durasi . " days"));
+                    $date1 = date("Y-m-d");
+                    $date2 = date_format($deadline,"Y-m-d");
+                    $days = (strtotime($date2) - strtotime($date1)) / (60 * 60 * 24);
+                    if ($days <= 1) {
+                      $jumlah_jatuh_tempo++;
+                    }
+        }
+        ?>
+        <p><b><?php echo $jumlah_jatuh_tempo; ?></b></p>
       </div>
     </div>
   </div>
