@@ -6,6 +6,10 @@ class Pustaka {
 		return date("d-m-Y", strtotime($tanggal));
 	}	
 
+	function tanggal_waktu_indo($tanggal_waktu) {
+		return date("d-m-Y H:i:s", strtotime($tanggal_waktu));
+	}	
+
 	function tanggal_indo_string($tanggal){
 		$bulan = array (
 			1 =>   'Januari',
