@@ -14,7 +14,7 @@
         <div class="tile-title-w-btn">
           <h3 class="title">Data Log</h3>
         </div>
-        <table class="table table-hover table-bordered datatable">
+        <table class="table">
           <thead>
             <tr>
               <th>TIME</th>
@@ -24,7 +24,9 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($this->db->get('log')->result() as $item) {
+            <?php
+            $this->db->order_by('time', 'desc');
+            foreach ($this->db->get('log')->result() as $item) {
               ?>
               <tr>
                 <td><?php echo $this->pustaka->tanggal_waktu_indo($item->time); ?></td>

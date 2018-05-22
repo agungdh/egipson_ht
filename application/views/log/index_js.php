@@ -1,7 +1,4 @@
 <script type="text/javascript">
-var tabel = $('.datatable').DataTable();
-tabel.order([0, 'desc']).draw();
-
 <?php
 foreach ($this->db->get('log')->result() as $item) {
 	?>
