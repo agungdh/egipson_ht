@@ -1,5 +1,13 @@
 <?php
 $zenziva = simplexml_load_string(file_get_contents("https://reguler.zenziva.net/apps/smsapibalance.php?userkey=" . $data['config']->zenziva_userkey . "&passkey=" . $data['config']->zenziva_passkey));
+
+$this->db->insert('log',
+  [
+    'tag' => 'Zenziva Cek Kredit',
+    'base_url' => '',
+    'time' => date('Y-m-d H:i:s'),
+    'value' => json_encode($zenziva)
+  ]);
 ?>
 
 <div class="app-title">

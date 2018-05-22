@@ -27,6 +27,14 @@ class Trigger extends CI_Controller {
 			$zenziva = simplexml_load_string(file_get_contents('https://reguler.zenziva.net/apps/smsapi.php?userkey='.$config->zenziva_userkey.'&passkey='.$config->zenziva_passkey.'&nohp='.$item.'&pesan='.urlencode($config->zenziva_sms)));
 
 			var_dump($zenziva);
+
+			$this->db->insert('log',
+			[
+				'tag' => 'Zenziva Kirim SMS',
+				'base_url' => 'trigger',
+				'time' => date('Y-m-d H:i:s'),
+				'value' => json_encode($zenziva)
+			]);
 		}
 	}
 }
