@@ -12,7 +12,7 @@
     <div class="tile">
       <h3 class="tile-title">Ubah Profil</h3>
       <div class="tile-body">
-        <form id="form_ubah" method="post" action="<?php echo base_url('profil/aksi_ubah'); ?>">
+        <form id="form_ubah" method="post" action="<?php echo base_url('profil/aksi_ubah'); ?>" enctype="multipart/form-data">
           
           <input type="hidden" name="where[id]" value="<?php echo $data['user']->id; ?>">
 
@@ -29,6 +29,11 @@
           <div class="form-group">
             <label class="control-label">Level</label>
             <input class="form-control" required readonly type="text" placeholder="Masukan Level" name="cdata[level]" value="<?php echo $data['user']->level == 1 ? "Administrator" : "Operator"; ?>">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Foto</label>
+            <input class="form-control" type="file" name="foto">
           </div>
 
           </div>

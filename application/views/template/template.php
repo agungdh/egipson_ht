@@ -1,3 +1,6 @@
+<?php
+$now = date('YmdHis');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +21,7 @@
       $favicon = 'assets/favicon.png';
     }
     ?>
-    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?refresh=yes'; ?>"/>
+    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?time=' . $now; ?>"/>
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -38,7 +41,15 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url('assets/user.png'); ?>" alt="User Image">
+      <!-- User Image -->
+      <?php
+      if (file_exists('uploads/userimage/' . $this->session->id)) {
+        $userimage = 'uploads/userimage/' . $this->session->id;
+      } else {
+        $userimage = 'assets/user.png';
+      }
+      ?>
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url($userimage) . '?time=' . $now; ?>" alt="User Image" style="width:64px;height:64px;">
         <div>
           <p class="app-sidebar__user-name"><?php echo $this->session->nama; ?></p>
           <p class="app-sidebar__user-designation"><?php echo $this->session->username; ?></p>

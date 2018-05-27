@@ -17,6 +17,11 @@ class Profil extends CI_Controller {
 	}
 
 	function aksi_ubah() {
+		$fav = $_FILES['foto'];
+		if ($fav['size'] != 0) {
+			move_uploaded_file($fav['tmp_name'], 'uploads/userimage/' . $this->session->id);
+		}
+
 		foreach ($this->input->post('data') as $key => $value) {
 			$data[$key] = $value;
 		}

@@ -1,5 +1,7 @@
 <?php $flashdata = $this->session->flashdata('data'); ?>
-
+<?php
+$now = date('YmdHis');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +22,7 @@
       $favicon = 'assets/favicon.png';
     }
     ?>
-    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?refresh=yes'; ?>"/>
+    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?time=' . $now; ?>"/>
   </head>
   <body>
     <section class="material-half-bg">
