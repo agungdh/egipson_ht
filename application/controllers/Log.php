@@ -63,7 +63,7 @@ class Log extends CI_Controller {
 	    }
 
 	    foreach ($query->result() as $row) { 
-	      $nestedData=array(); 
+	      $nestedData=[]; 
 	      $id = $row->id;
 	      $nestedData[] = $this->pustaka->tanggal_waktu_indo($row->time);
 	      $nestedData[] = $row->tag;
@@ -74,12 +74,12 @@ class Log extends CI_Controller {
 	        
 	    }
 
-	    $json_data = array(
+	    $json_data = [
 	          "draw"            => intval( $requestData['draw'] ),    
 	          "recordsTotal"    => intval( $totalData ), 
 	          "recordsFiltered" => intval( $totalFiltered ), 
 	          "data"            => $data   
-	          );
+	          ];
 
 	    echo json_encode($json_data);  
 	  }

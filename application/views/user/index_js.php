@@ -1,5 +1,15 @@
 <script type="text/javascript">
-$('.datatable').DataTable();
+$('.datatable').DataTable( {
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "<?php echo base_url('user/ajax'); ?>",
+        "type": "POST"
+    },
+    columnDefs: [
+        { targets: [3], orderable: false}
+    ]
+});
 
 function hapus(id) {
     swal({
