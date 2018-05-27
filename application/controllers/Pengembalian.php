@@ -5,7 +5,7 @@ class Pengembalian extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		$this->pustaka->auth($this->session->id, [1, 2]);
+		$this->pustaka->auth($this->session->level, [1, 2]);
 	}
 
 	function index() {
