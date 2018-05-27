@@ -17,7 +17,7 @@ class Log extends CI_Controller {
 
 	function ajax(){
 	    $requestData = $_REQUEST;
-	    $columns = ['tag', 'base_url', 'time', 'value'];
+	    $columns = ['time', 'tag', 'base_url', 'value'];
 
 	      $row = $this->db->query("SELECT count(*) total_data 
 	        FROM log")->row();
@@ -65,9 +65,9 @@ class Log extends CI_Controller {
 	    foreach ($query->result() as $row) { 
 	      $nestedData=array(); 
 	      $id = $row->id;
+	      $nestedData[] = $this->pustaka->tanggal_waktu_indo($row->time);
 	      $nestedData[] = $row->tag;
 	      $nestedData[] = base_url($row->base_url);
-	      $nestedData[] = $this->pustaka->tanggal_waktu_indo($row->time);
 	      $nestedData[] = $row->value;
 
 	      $data[] = $nestedData;
