@@ -17,6 +17,11 @@ class Config extends CI_Controller {
 	}
 
 	function aksi_ubah() {
+		$fav = $_FILES['favicon'];
+		if ($fav['size'] != 0) {
+			move_uploaded_file($fav['tmp_name'], 'uploads/favicon');
+		}
+
 		foreach ($this->input->post('data') as $key => $value) {
 			$data[$key] = $value;
 		}
