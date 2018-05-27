@@ -11,6 +11,16 @@
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title><?php echo $this->db->get('config')->row()->judul_aplikasi; ?></title>
+
+    <!-- Favicon -->
+    <?php
+    if (file_exists('uploads/favicon')) {
+      $favicon = 'uploads/favicon';
+    } else {
+      $favicon = 'assets/favicon.png';
+    }
+    ?>
+    <link rel="shortcut icon" href="<?php echo base_url($favicon); ?>"/>
   </head>
   <body>
     <section class="material-half-bg">
