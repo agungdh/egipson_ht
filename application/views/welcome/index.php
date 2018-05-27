@@ -24,7 +24,7 @@ $this->db->insert('log',
     <div class="widget-small primary coloured-icon"><i class="icon fa fa-dollar fa-3x"></i>
       <div class="info">
         <h4>Kredit SMS</h4>
-        <p><b><?php echo $zenziva->message->value; ?></b></p>
+        <p><b><?php echo isset($zenziva->message->value) ? $zenziva->message->value : $zenziva->message->text; ?></b></p>
       </div>
     </div>
   </div>
