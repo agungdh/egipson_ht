@@ -87,7 +87,8 @@ class User extends CI_Controller {
 	    $columns = ['nama', 'username', 'level'];
 
 	      $row = $this->db->query("SELECT count(*) total_data 
-	        FROM user")->row();
+	        FROM user
+	        WHERE id != ?", [$this->session->id])->row();
 
 	        $totalData = $row->total_data;
 	        $totalFiltered = $totalData; 
@@ -98,22 +99,25 @@ class User extends CI_Controller {
 	      $search_value = "%" . $requestData['search']['value'] . "%";
 
 		    $cari = [];
+
+		    $cari[] = $this->session->id;
+
 	  	    for ($i=1; $i <= 2; $i++) { 
 		    	$cari[] = $search_value;
 		    }
 
 	      $row = $this->db->query("SELECT count(*) total_data 
 	        FROM user
-	        WHERE (username LIKE ?
-	    			OR nama LIKE ?
+	        WHERE (id != ?
+	        		AND (username LIKE ? OR nama LIKE ?)
 	    		)", $cari)->row();
 
 	        $totalFiltered = $row->total_data; 
 
 	      $query = $this->db->query("SELECT *
 	        FROM user
-	        WHERE (username LIKE ?
-	    			OR nama LIKE ?
+	        WHERE (id != ?
+	        		AND (username LIKE ? OR nama LIKE ?)
 	    		)
 	        ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."   LIMIT ".$requestData['start']." ,".$requestData['length'], $cari);
 	            
@@ -121,7 +125,8 @@ class User extends CI_Controller {
 
 	      $query = $this->db->query("SELECT *
 	        FROM user
-	        ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."   LIMIT ".$requestData['start']." ,".$requestData['length']);
+	        WHERE id != ?
+	        ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."   LIMIT ".$requestData['start']." ,".$requestData['length'], [$this->session->id]);
 	            
 	    }
 
