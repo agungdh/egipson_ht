@@ -14,7 +14,7 @@
         <div class="tile-title-w-btn">
           <h3 class="title">Data Log</h3>
         </div>
-        <table class="table">
+        <table class="table table-hover table-bordered datatable">
           <thead>
             <tr>
               <th>TIME</th>
@@ -32,7 +32,7 @@
                 <td><?php echo $this->pustaka->tanggal_waktu_indo($item->time); ?></td>
                 <td><?php echo $item->tag; ?></td>
                 <td><?php echo base_url($item->base_url); ?></td>
-                <td><pre id="data_<?php echo $item->id; ?>"></pre></td>
+                <td><?php echo $item->value; ?></td>
               </tr>
               <?php
             } ?>
