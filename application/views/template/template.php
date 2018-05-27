@@ -18,7 +18,7 @@
       $favicon = 'assets/favicon.png';
     }
     ?>
-    <link rel="shortcut icon" href="<?php echo base_url($favicon); ?>"/>
+    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?refresh=yes'; ?>"/>
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
