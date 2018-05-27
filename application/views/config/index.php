@@ -58,8 +58,8 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label">Zenziva SMS</label>
-            <textarea class="form-control" name="data[zenziva_sms]" placeholder="Tulis SMS disini" required><?php echo $data['config']->zenziva_sms; ?></textarea>
+            <label class="control-label">Zenziva SMS [Total: <normalText id="total"></normalText> | Sisa: <normalText id="sisa"></normalText>]</label>
+            <textarea class="form-control" id="sms" name="data[zenziva_sms]" placeholder="Tulis SMS disini" required><?php echo $data['config']->zenziva_sms; ?></textarea>
           </div>
 
 
