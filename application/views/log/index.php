@@ -1,6 +1,6 @@
 <div class="app-title">
   <div>
-    <h1><i class="fa fa-edit"></i> Log</h1>
+    <h1><i class="fa fa-info-circle"></i> Log</h1>
   </div>
   <ul class="app-breadcrumb breadcrumb">
     <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -23,20 +23,6 @@
               <th>VALUE</th>
             </tr>
           </thead>
-          <tbody>
-            <?php
-            $this->db->order_by('time', 'desc');
-            foreach ($this->db->get('log')->result() as $item) {
-              ?>
-              <tr>
-                <td><?php echo $this->pustaka->tanggal_waktu_indo($item->time); ?></td>
-                <td><?php echo $item->tag; ?></td>
-                <td><?php echo base_url($item->base_url); ?></td>
-                <td><?php echo $item->value; ?></td>
-              </tr>
-              <?php
-            } ?>
-          </tbody>
         </table>
       </div>
     </div>
