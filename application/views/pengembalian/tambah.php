@@ -40,11 +40,6 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label">Jenis</label>
-            <input class="form-control" type="text" required placeholder="Masukan Jenis" name="data[jenis]">
-          </div>
-
-          <div class="form-group">
             <label class="control-label">Tanggal</label>
             <input class="form-control datepicker" type="text" required placeholder="Masukan Tanggal" name="data[tanggal]">
           </div>

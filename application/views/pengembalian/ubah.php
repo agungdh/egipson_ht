@@ -40,11 +40,6 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label class="control-label">Jenis</label>
-            <input class="form-control" value="<?php echo $data['pengembalian']->jenis; ?>" type="text" required placeholder="Masukan Jenis" name="data[jenis]">
-          </div>
-
           <?php
           $tanggal = date_format(date_create($data['pengembalian']->tanggal),"d-m-Y");
           ?>

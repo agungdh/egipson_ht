@@ -21,7 +21,6 @@
               <th>Nama</th>
               <th>NIP</th>
               <th>Nomor Seri</th>
-              <th>Jenis</th>
               <th>Tanggal</th>
               <th>Proses</th>
             </tr>
@@ -33,7 +32,6 @@
                 <td><?php echo $item->nama; ?></td>
                 <td><?php echo $item->nip; ?></td>
                 <td><?php echo $item->noseri; ?></td>
-                <td><?php echo $item->jenis; ?></td>
                 <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
                 <td>
                   <div class="btn-group">
