@@ -15,7 +15,7 @@
           <h3 class="title">Data Peminjaman Belum Dikembalikan</h3>
           <p><a class="btn btn-primary icon-btn" href="<?php echo base_url('peminjaman/tambah'); ?>"><i class="fa fa-plus"></i>Peminjaman</a></p>
         </div>
-        <table class="table table-hover table-bordered datatable">
+        <table class="table table-hover table-bordered" id="belum" >
           <thead>
             <tr>
               <th>Nama</th>
@@ -30,38 +30,6 @@
               <th>Proses</th>
             </tr>
           </thead>
-          <tbody>
-            <?php foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
-              ?>
-              <tr>
-                <td><?php echo $item->nama; ?></td>
-                <td><?php echo $item->nip; ?></td>
-                <td><?php echo $item->nohp; ?></td>
-                <td><?php echo $item->noseri; ?></td>
-                <td><?php echo $item->jenis; ?></td>
-                <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
-                <td><?php echo $item->durasi; ?></td>
-                <?php
-                $deadline=date_create($item->tanggal);
-                date_add($deadline,date_interval_create_from_date_string($item->durasi . " days"));
-                ?>
-                <td><?php echo date_format($deadline,"d-m-Y"); ?></td>
-                <?php
-                $date1 = date("Y-m-d");
-                $date2 = date_format($deadline,"Y-m-d");
-                $days = (strtotime($date2) - strtotime($date1)) / (60 * 60 * 24);
-                ?>
-                <td><?php echo $days; ?></td>
-                <td>
-                  <div class="btn-group">
-                    <a class="btn btn-primary" href="<?php echo base_url('peminjaman/ubah/' . $item->id); ?>" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-primary" href="#" onclick="hapus('<?php echo $item->id; ?>')" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
-                  </div>
-                </td>
-              </tr>
-              <?php
-            } ?>
-          </tbody>
         </table>
       </div>
     </div>
@@ -73,7 +41,7 @@
         <div class="tile-title-w-btn">
           <h3 class="title">Data Peminjaman Sudah Dikembalikan</h3>
         </div>
-        <table class="table table-hover table-bordered datatable">
+        <table class="table table-hover table-bordered" id="sudah">
           <thead>
             <tr>
               <th>Nama</th>
@@ -84,22 +52,7 @@
               <th>Tanggal</th>
               <th>Durasi (Hari)</th>
             </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($this->db->get_where('peminjaman', ['status' => 0])->result() as $item) {
-              ?>
-              <tr>
-                <td><?php echo $item->nama; ?></td>
-                <td><?php echo $item->nip; ?></td>
-                <td><?php echo $item->nohp; ?></td>
-                <td><?php echo $item->noseri; ?></td>
-                <td><?php echo $item->jenis; ?></td>
-                <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
-                <td><?php echo $item->durasi; ?></td>
-              </tr>
-              <?php
-            } ?>
-          </tbody>
+          </thead> 
         </table>
       </div>
     </div>

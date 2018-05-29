@@ -1,5 +1,24 @@
 <script type="text/javascript">
-$('.datatable').DataTable();
+$('#belum').DataTable( {
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "<?php echo base_url('peminjaman/ajax_belum'); ?>",
+        "type": "POST"
+    },
+    columnDefs: [
+        { targets: [7,8,9], orderable: false}
+    ]
+});
+
+$('#sudah').DataTable( {
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "<?php echo base_url('peminjaman/ajax_sudah'); ?>",
+        "type": "POST"
+    }
+});
 
 function hapus(id) {
     swal({
