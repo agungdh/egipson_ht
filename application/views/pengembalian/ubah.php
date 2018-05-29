@@ -28,16 +28,13 @@
           </div>
 
           <div class="form-group">
+            <label class="control-label">No HP</label>
+            <input class="form-control" value="<?php echo $data['pengembalian']->nohp; ?>" type="text" required placeholder="Masukan No HP" name="data[nohp]">
+          </div>
+
+          <div class="form-group">
             <label class="control-label">Nomor Seri</label>
-            <select class="form-control select2" required name="data[noseri]">
-              <?php
-              foreach ($this->db->get_where('peminjaman', ['status' => 1])->result() as $item) {
-                ?>
-                <option <?php echo $item->noseri == $data['pengembalian']->noseri ? "selected" : null; ?> value="<?php echo $item->noseri; ?>"><?php echo $item->noseri; ?></option>
-                <?php
-              }
-              ?>
-            </select>
+            <input class="form-control" value="<?php echo $data['pengembalian']->noseri; ?>" type="text" required placeholder="Masukan No Seri" name="data[noseri]" readonly>
           </div>
 
           <?php

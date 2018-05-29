@@ -20,29 +20,12 @@
             <tr>
               <th>Nama</th>
               <th>NIP</th>
+              <th>No HP</th>
               <th>Nomor Seri</th>
               <th>Tanggal</th>
               <th>Proses</th>
             </tr>
           </thead>
-          <tbody>
-            <?php foreach ($this->db->get('pengembalian')->result() as $item) {
-              ?>
-              <tr>
-                <td><?php echo $item->nama; ?></td>
-                <td><?php echo $item->nip; ?></td>
-                <td><?php echo $item->noseri; ?></td>
-                <td><?php echo $this->pustaka->tanggal_indo($item->tanggal); ?></td>
-                <td>
-                  <div class="btn-group">
-                    <a class="btn btn-primary" href="<?php echo base_url('pengembalian/ubah/' . $item->id); ?>" data-toggle="tooltip" title="Ubah"><i class="fa fa-edit"></i></a>
-                    <a class="btn btn-primary" href="#" onclick="hapus('<?php echo $item->id; ?>')" data-toggle="tooltip" title="Hapus"><i class="fa fa-trash"></i></a>
-                  </div>
-                </td>
-              </tr>
-              <?php
-            } ?>
-          </tbody>
         </table>
       </div>
     </div>
