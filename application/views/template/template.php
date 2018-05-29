@@ -49,7 +49,7 @@ $now = date('YmdHis');
         $userimage = 'assets/user.png';
       }
       ?>
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url($userimage) . '?time=' . $now; ?>" alt="User Image" style="width:64px;height:64px;">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url($userimage) . '?time=' . $now; ?>" alt="User Image">
         <div>
           <p class="app-sidebar__user-name"><?php echo $this->session->nama; ?></p>
           <p class="app-sidebar__user-designation"><?php echo $this->session->username; ?></p>
