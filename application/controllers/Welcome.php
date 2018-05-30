@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 	}
 
 	function login() {
-		$data_user = $this->db->get_where('user', ['username' => $this->input->post('username'), 'password' => hash("md5", $this->input->post('password'))])->row();
+		$data_user = $this->db->get_where('user', ['username' => $this->input->post('username'), 'password' => hash("sha512", $this->input->post('password'))])->row();
 
 		if ($data_user != null) {			
 			$array_data_user = array(
