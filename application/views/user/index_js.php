@@ -1,5 +1,5 @@
 <script type="text/javascript">
-$('.datatable').DataTable( {
+var table = $('.datatable').DataTable( {
     "processing": true,
     "serverSide": true,
     "ajax": {
@@ -22,7 +22,13 @@ function hapus(id) {
         confirmButtonText: 'Hapus!'
     }).then(function(result) {
         if (result.value) {
-            window.location = "<?php echo base_url('user/aksi_hapus/'); ?>" + id;
+            axios.get("<?php echo base_url('user/aksi_hapus/') ?>" + id)
+            .then(function (response) {
+                table.ajax.reload();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         }
     });
 };
