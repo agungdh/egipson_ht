@@ -33,14 +33,10 @@ function hapus(id) {
         confirmButtonText: 'Hapus!'
     }).then(function(result) {
         if (result.value) {
-            axios.get("<?php echo base_url('peminjaman/aksi_hapus/'); ?>" + id)
-            .then(function (response) {
+            $.get("<?php echo base_url('peminjaman/aksi_hapus/'); ?>" + id, function(data, status){
                 table.ajax.reload();
-            })
-            .catch(function (error) {
-                console.log(error);
             });
-        }
+       }
     });
 };
 </script>
