@@ -8,7 +8,9 @@ $('#belum').DataTable( {
     },
     columnDefs: [
         { targets: [7,8,9], orderable: false}
-    ]
+    ],
+    "scrollX": true,
+    "autoWidth": false,
 });
 
 $('#sudah').DataTable( {
@@ -17,7 +19,9 @@ $('#sudah').DataTable( {
     "ajax": {
         "url": "<?php echo base_url('peminjaman/ajax_sudah'); ?>",
         "type": "POST"
-    }
+    },
+    "scrollX": true,
+    "autoWidth": false,
 });
 
 function hapus(id) {

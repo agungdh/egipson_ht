@@ -8,7 +8,9 @@ $('.datatable').DataTable( {
     },
     columnDefs: [
         { targets: [3], orderable: false}
-    ]
+    ],
+    "scrollX": true,
+    "autoWidth": false,
 });
 
 function hapus(id) {
