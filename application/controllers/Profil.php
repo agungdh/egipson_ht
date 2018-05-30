@@ -45,7 +45,7 @@ class Profil extends CI_Controller {
 
 	function aksi_ubah_password() {
 		foreach ($this->input->post('data') as $key => $value) {
-			$data[$key] = hash('md5', $value);
+			$data[$key] = hash('sha512', $value);
 		}
 
 		foreach ($this->input->post('where') as $key => $value) {
