@@ -12,6 +12,9 @@ class Smartyci extends Smarty
         $this->setCompileDir( APPPATH . 'views/compiled' );
         $this->setConfigDir( APPPATH . 'config/smarty' );
         $this->setCacheDir( APPPATH . 'cache' );
+
+        $CI =& get_instance();
+        $this->assign('CI', $CI);
     }
 
     //if specified template is cached then display template and exit, otherwise, do nothing.
