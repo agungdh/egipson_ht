@@ -73,3 +73,27 @@ if ($flashdata != null) {
   $this->pustaka->swal3($flashdata['header'], $flashdata['pesan'], $flashdata['status']);
 }
 ?>
+
+<script type="text/javascript">
+$('form').submit(function(e) {
+  e.preventDefault();
+  
+  $.ajax({
+    url: "<?php echo base_url('welcome/login'); ?>",
+    type: 'post',
+    data: $('form').serialize(),
+    success: function(respone){ 
+      respon = JSON.parse(respone);
+
+      if (respon.login == true) {
+        window.location = "<?php echo base_url(); ?>";
+      } else {
+        swal(respon.header, respon.pesan, respon.status);
+      }
+    },
+    error: function(respone){
+      console.log(respone);
+    }
+  });
+});
+</script>

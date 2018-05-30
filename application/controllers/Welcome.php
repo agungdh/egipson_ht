@@ -32,16 +32,15 @@ class Welcome extends CI_Controller {
 
 			$this->session->set_userdata($array_data_user);
 
-			redirect(base_url());
+			echo json_encode(['login' => true]);
 		} else {
-			$flashdata['header'] = "ERROR !!!";
-			$flashdata['pesan'] = "Password Salah !!!";
-			$flashdata['status'] = "error";
+			$data['header'] = "ERROR !!!";
+			$data['pesan'] = "Password Salah !!!";
+			$data['status'] = "error";
 
-			$flashdata['username'] = $this->input->post('username');
-			
-			$this->session->set_flashdata('data', $flashdata);
-			redirect(base_url());
+			$data['login'] = false;
+
+			echo json_encode($data);
 		}
 	}
 
